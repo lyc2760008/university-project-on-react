@@ -22,12 +22,11 @@ class Home extends React.Component {
     }
 
  render() {
-    let imgUrl = "https://source.unsplash.com/user/erondu/daily";
-    //got image from https://source.unsplash.com/
+
     return (
         <div>
             <div className = 'banner'
-                style = {{ backgroundImage: `url(${imgUrl})`,
+                style = {{ background: `url(background.jpg)`,
                 height: '800px',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
