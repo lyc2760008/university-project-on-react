@@ -48,9 +48,6 @@ class Home extends React.Component {
                         </Link>
                     </div>
                 </div>
-                <footer>
-                    The image was retrieved from https://source.unsplash.com/
-                </footer>
             </div>
         </div>
         
