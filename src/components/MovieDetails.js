@@ -26,11 +26,13 @@ class MovieDetails extends React.Component{
         this._isMounted = true;
         try {
           //fetch data depending on the passed id from parent component
-          const url2 = 'http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=';
+          const url2 = 'https://ancient-reef-50076.herokuapp.com/api/movies/';
           const response = await fetch(url2+ this.props.currentMovie);
+          console.log(response);
           if (this._isMounted) {
             this.setState({detailData:await response.json()});
             this.setState( {loaded: true } );
+            console.log(this.state.detailData);
           }  
         }
         catch (error) {

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const HeaderBar = function (props) {
     return(
         <div className='header-titles'>
-            <NavLink exact to='/' activeClassName='active'>
+            <NavLink exact to='/home' activeClassName='active'>
             <button><img className= 'logo' src={myLogo} alt='myLogo'/> </button>
             </NavLink>
         </div>

@@ -33,7 +33,7 @@ class HeaderMenu extends React.Component{
               </Modal.Header>
               <Modal.Body>
                 <p>Group member: Yichen Li</p>
-                <p>Github Link: </p>
+                <p><a href='https://lyc2760008.github.io/test'>Github Link</a></p>
                 <p>Technology used: React</p>
                 <p>Learning sources:</p>
                 <ul className="fa-ul"> 

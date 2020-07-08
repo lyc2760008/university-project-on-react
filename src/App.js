@@ -10,7 +10,6 @@ import {CSSTransition,TransitionGroup,} from 'react-transition-group';
 import loading from './loading.gif'
 
 class App extends React.Component {
-  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = { 
@@ -36,19 +35,16 @@ class App extends React.Component {
     })
    }
    async componentDidMount() {
-    this._isMounted = true;
     if(!localStorage.getItem('movies')){
       //Fetch data it has not been stored in local storage
       try {
-      const url = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
+      const url = "https://ancient-reef-50076.herokuapp.com/api/brief";
         const response = await fetch(url);
-        if (this._isMounted) {
-          this.setState({jsonData:await response.json()});
-          this.state.jsonData.sort((a, b) => (a.title > b.title) ? 1 : -1)
-          this.setState( {movies: this.state.jsonData } );
-          this.setState({loaded:true})
-        }
-      
+        const jsonData=await response.json()
+        this.setState( {jsonData: jsonData } );
+        this.state.jsonData.sort((a, b) => (a.title > b.title) ? 1 : -1)
+        this.setState( {movies: this.state.jsonData } );
+        this.setState({loaded:true})
         }
         catch (error) {
           console.error(error);
@@ -70,10 +66,6 @@ class App extends React.Component {
      localStorage.setItem('moviesDate', Date.now());
      localStorage.setItem('loaded', JSON.stringify(nextState.loaded));
    }
-   UNSAFE_componentWillUnmount() {
-     //handle if data has not mounted yet
-    this._isMounted = false;
-  }
 
    performSerch=(result)=>{
      //search for matched when user type something and click "Display Matching Movies" in homepage, 
@@ -212,6 +204,16 @@ class App extends React.Component {
                 closeFav = {this.closeFav}
                 showDetails={this.showDetails}
                 />
+          <Route 
+              path='/test/' exact 
+              component={()=> <Home performSerch={this.performSerch}
+                                    performBrowse={this.performBrowse}/>} 
+            />
+            <Route 
+              path='/' exact 
+              component={()=> <Home performSerch={this.performSerch}
+                                    performBrowse={this.performBrowse}/>} 
+            />
           <Route render={ ({location}) => ( 
             //Learned transition from https://www.youtube.com/watch?v=NUQkajBdnmQ
             <TransitionGroup>
@@ -221,7 +223,7 @@ class App extends React.Component {
                 classNames='fade'>
                 <Switch>
                   <Route 
-                    path='/' exact 
+                    path='/home' exact 
                     component={()=> <Home performSerch={this.performSerch}
                                           performBrowse={this.performBrowse}/>} 
                   />
@@ -245,8 +247,6 @@ class App extends React.Component {
                           movies = {this.state.movies}
                           currentMovie={this.state.currentMovie}
                           showFavs = {this.showFavs}
-                          // updatePhoto={this.updatePhoto}
-                          //showDetails={this.showDetails}
                       />} 
                   />
                 </Switch>
