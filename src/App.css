@@ -77,6 +77,8 @@ code {
 .header {
   display: grid;
   grid-template-columns: 1fr;
+  position: fixed; 
+  width: 100%; 
   grid-auto-flow: column;
   align-items: center;
   grid-gap: 10px;
