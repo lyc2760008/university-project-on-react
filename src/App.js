@@ -199,7 +199,8 @@ class App extends React.Component {
     }else{
       return (
         <main>
-          <HeaderApp />
+          <HeaderApp browseSerch={this.browseSerch}
+          clearAll={this.clearAll}/>
           <Favs favorites = {this.state.favorites}
                 closeFav = {this.closeFav}
                 showDetails={this.showDetails}
@@ -233,8 +234,6 @@ class App extends React.Component {
                         movies={this.state.movies}
                         // updatePhoto={this.updatePhoto}
                         showFavs = {this.showFavs}
-                        browseSerch={this.browseSerch}
-                        clearAll={this.clearAll}
                         sortTitle={this.sortTitle}
                         sortYear={this.sortYear}
                         sortRating={this.sortRating}

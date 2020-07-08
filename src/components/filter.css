@@ -13,17 +13,17 @@
     color: darkslategray;
 }
 
-.searchbar{
+ .searchbar{
   padding: 6px;
   margin-top: 0;
   font-size: 15px;
   float: right;
   clear: right;
-  margin-right: 3em;
+  margin-right: 5em;
 }
 
-.filters {
-  margin-left: 70%;
+/* .filters {
+  margin-left: 10%;
   display: block;
   transition: opacity 0.8s;
   opacity: 1;
@@ -34,7 +34,7 @@
     transition: opacity 0.8s;
     opacity: 0;
   pointer-events:none;
-  }
+  } */
   .filters label, .filtersHide label{
     font-weight: bold;
     font-style: italic;
@@ -72,9 +72,9 @@
   border-radius:15px;
   font-size: 1em;
   cursor: pointer;
-  margin-left: 8em;
-  margin-right: 0em;
-  margin-top: -5rem;
+  margin-left: 6em;
+  /* margin-right: 0em;
+  margin-top: -5rem; */
   transition-property: background-color;
   transition-duration: 1.1s;
   transition-timing-function: ease-out;
@@ -87,15 +87,15 @@
 }
 .clearBtn{
   position: relative;
-  background-color: rgb(123, 169, 214);
+  background-color: rgb(246, 114, 81);
   border: 0;
   color: white;
   padding: 10px 24px;
   border-radius:15px;
   font-size: 1em;
   cursor: pointer;
-  margin-left: 0.5em;
-  margin-right: 1em;
+  margin-left: 4em;
+  /* margin-right: 1em; */
   transition-property: background-color;
   transition-duration: 1.1s;
   transition-timing-function: ease-out;
@@ -103,7 +103,7 @@
 }
 
 .clearBtn:hover {
-  background-color: rgb(50, 123, 197);;
+  background-color: rgb(197, 50, 50);;
   color: white;
 }
 .oneLine{
@@ -183,9 +183,12 @@
   border-radius: 5px 5px 25px 25px;
   width: 2em;
 }
-.filterDiv {
+/* .filterDiv {
   margin-left: 53em;
-}
+} */
+
+
+
 
 
 /* .filterContainer {

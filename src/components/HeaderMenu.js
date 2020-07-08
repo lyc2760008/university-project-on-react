@@ -3,6 +3,7 @@ import './MovieDetails.css'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import Filter from './MovieFilter.js';
 
 
 class HeaderMenu extends React.Component{
@@ -62,6 +63,27 @@ class HeaderMenu extends React.Component{
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={this.handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          
+
+            <Button variant="primary" onClick={this.handleProShow}>
+              Filter
+            </Button>
+            <Modal show={this.state.showPro} onHide={this.handleProClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Movie Filter</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Filter browseSerch={this.props.browseSerch}
+                         clearAll={this.props.clearAll}
+                         closeWindow={this.handleProClose}/>
+                
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleProClose}>
                   Close
                 </Button>
               </Modal.Footer>

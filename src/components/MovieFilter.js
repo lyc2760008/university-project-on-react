@@ -77,6 +77,7 @@ class MovieFilter extends React.Component{
         this.props.browseSerch(this.state.searchValue,this.state.beforeValue,
                                 this.state.afterValue,this.state.betStart,this.state.betEnd,
                                 this.state.belowVolume,this.state.aboveVolume,this.state.startVolume,this.state.endVolume);
+        this.props.closeWindow();
     }
 
     handleClear=()=>{
@@ -95,6 +96,7 @@ class MovieFilter extends React.Component{
         this.setState({startVolume :0});
         this.setState({endVolume :0});
         this.props.clearAll();
+        this.props.closeWindow();
     }
 
     toggleFav=(event)=>{
@@ -105,21 +107,21 @@ class MovieFilter extends React.Component{
 
     render(){
         //give two class names for different showFilter state
-        const classes = this.state.showFilter ? 'filters' : 'filtersHide'
+        // const classes = this.state.showFilter ? 'filters' : 'filtersHide'
         //https://stackoverflow.com/questions/41852818/react-fade-in-element for animation toggle
         let { belowVolume, aboveVolume, startVolume, endVolume } = this.state
         return(
             <div>
                 <div className='filterDiv'>
-                <span className=''><button className='button' onClick={this.toggleFav}>{this.state.showFilter ? 'Hide' : 'Show'}</button></span>
+                {/* <span className=''><button className='button' onClick={this.toggleFav}>{this.state.showFilter ? 'Hide' : 'Show'}</button></span> */}
                  </div>
                     {/* set show or hide the form by chaning the className */}
-                    <form className={classes} onSubmit={e => {e.preventDefault();}}>
+                    <form onSubmit={e => {e.preventDefault();}}>
                         <div className="btns">
                             <button  className="filterBtn" onClick={this.handleSearch}>Search</button>
-                            <button  className="clearBtn" onClick={this.handleClear}>Clear</button>
+                            <button  className="clearBtn" onClick={this.handleClear}>Clear Filter</button>
                         </div>
-                        <legend className=''>Movie Filter</legend>
+                        <legend className=''></legend>
                         <div className='oneLine'>
                             <label>Movie Name: </label>
                             <input className='searchbar' type="text" placeholder="Search.." value={this.state.searchValue}

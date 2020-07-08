@@ -11,12 +11,7 @@
   width: 100%;
 }
 
-.movies {
-  width: 65%;
-  float: left;
-  overflow-y: scroll;
-  height:45rem;
-}
+
 td {
   text-align: left;
   padding: 20px;

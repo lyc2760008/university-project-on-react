@@ -2,12 +2,16 @@ import React from 'react';
 import HeaderBar from './HeaderBar.js';
 import HeaderMenu from './HeaderMenu.js';
 
-const HeaderApp = function (props) {
+class HeaderApp extends React.Component {
+    render() {
     return (
         <header className="header">
             <HeaderBar />
-            <HeaderMenu />
+            <HeaderMenu browseSerch={this.props.browseSerch}
+                         clearAll={this.props.clearAll}
+                         showFilter={this.props.showFilter}/>
         </header>
     );
+    }
 }
 export default HeaderApp;

@@ -1,6 +1,5 @@
 import React from "react";
 import MovieList from './MovieList.js';
-import MovieFilter from './MovieFilter.js';
 
 class MovieBrowser extends React.Component {
     //this page shows both movie list and movie filter
@@ -14,9 +13,6 @@ class MovieBrowser extends React.Component {
                        sortRating={this.props.sortRating}
                        showDetails={this.props.showDetails}
                        />
-                       
-            <MovieFilter browseSerch={this.props.browseSerch}
-                         clearAll={this.props.clearAll}/>
         </section>
         );
        }
